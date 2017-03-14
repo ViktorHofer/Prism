@@ -7,5 +7,7 @@ before_build:
   - nuget restore Source/PrismLibrary_Win10.sln
   - nuget restore Source/PrismLibrary_Wpf.sln
 build:
-  project: Source/PrismLibrary.sln
-  verbosity: minimal
+  - dotnet build Source/PrismLibrary_Core.sln
+  - dotnet build Source/PrismLibrary_Xamarin.sln
+  - msbuild Source/PrismLibrary_Win10.sln /p:Configuration=Release
+  - msbuild Source/PrismLibrary_Wpf.sln /p:Configuration=Release
