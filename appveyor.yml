@@ -4,6 +4,8 @@ before_build:
   - dotnet --info
   - dotnet restore Source/PrismLibrary_Core.sln
   - dotnet restore Source/PrismLibrary_Xamarin.sln
+  - nuget restore Source/PrismLibrary_Win10.sln
+  - nuget restore Source/PrismLibrary_Wpf.sln
 build:
   project: Source/PrismLibrary.sln
   verbosity: minimal
