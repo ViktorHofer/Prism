@@ -1,12 +1,13 @@
 version: 1.0.{build}
 image: Visual Studio 2017
+build: off
 before_build:
   - dotnet --info
   - dotnet restore Source/PrismLibrary_Core.sln
   - dotnet restore Source/PrismLibrary_Xamarin.sln
   - nuget restore Source/PrismLibrary_Win10.sln
   - nuget restore Source/PrismLibrary_Wpf.sln
-build:
+build_script:
   - dotnet build Source/PrismLibrary_Core.sln
   - dotnet build Source/PrismLibrary_Xamarin.sln
   - msbuild Source/PrismLibrary_Win10.sln /p:Configuration=Release
