@@ -1,6 +1,7 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 build: off
+test: off
 before_build:
   - dotnet --info
   - dotnet restore Source/PrismLibrary_Core.sln
