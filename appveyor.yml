@@ -4,20 +4,17 @@ build: off
 test: off
 before_build:
   - dotnet --info
-  - dotnet restore Source/PrismLibrary_Core.sln
-  - dotnet restore Source/PrismLibrary_Xamarin.sln
-  - nuget restore Source/PrismLibrary_Win10.sln
-  - nuget restore Source/PrismLibrary_Wpf.sln
+  - dotnet restore Source\PrismLibrary_Core.sln
+  - dotnet restore Source\PrismLibrary_Xamarin.sln
+  - nuget restore Source\PrismLibrary_Win10.sln
+  - nuget restore Source\PrismLibrary_Wpf.sln
 build_script:
-  - dotnet build Source/PrismLibrary_Core.sln
-  - msbuild Source/PrismLibrary_Xamarin.sln
-  - msbuild Source/PrismLibrary_Win10.sln
-  - msbuild Source/PrismLibrary_Wpf.sln
+  - dotnet build Source\PrismLibrary_Core.sln
+  - msbuild Source\PrismLibrary_Xamarin.sln
+  - msbuild Source\PrismLibrary_Win10.sln
+  - msbuild Source\PrismLibrary_Wpf.sln
+before_test:
+  - nuget install xunit.runner.console -ExcludeVersion -Pre -OutputDirectory packages
 test_script:
-  - dotnet test Source/Prism.Tests/Prism.Tests.csproj
-  - xunit.console Source/Wpf/Prism.Autofac.Wpf.Tests/Prism.Autofac.Wpf.Tests.csproj /appveyor
-  - xunit.console Source/Wpf/Prism.DryIoc.Wpf.Tests/Prism.DryIoc.Wpf.Tests.csproj /appveyor
-  - xunit.console Source/Wpf/Prism.Mef.Wpf.Tests/Prism.Mef.Wpf.Tests.csproj /appveyor
-  - xunit.console Source/Wpf/Prism.StructureMap.Wpf.Tests/Prism.StructureMap.Wpf.Tests.csproj /appveyor
-  - xunit.console Source/Wpf/Prism.Unity.Wpf.Tests/Prism.Unity.Wpf.Tests.csproj /appveyor
-  - xunit.console Source/Wpf/Prism.Wpf.Tests/Prism.Wpf.Tests.csproj /appveyor
+  - dotnet test Source\Prism.Tests\Prism.Tests.csproj
+  - packages\xunit.runner.console\tools\xunit.console Source\Wpf\Prism.Autofac.Wpf.Tests\bin\Debug\Prism.Autofac.Wpf.Tests.dll
