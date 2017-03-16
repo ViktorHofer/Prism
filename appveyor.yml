@@ -21,6 +21,6 @@ test_script:
   - vstest.console /logger:Appveyor Source\Wpf\Prism.Mef.Wpf.Tests\bin\Debug\Prism.Mef.Wpf.Tests.dll
   - vstest.console /logger:Appveyor Source\Wpf\Prism.StructureMap.Wpf.Tests\bin\Debug\Prism.StructureMap.Wpf.Tests.dll
   - vstest.console /logger:Appveyor Source\Wpf\Prism.Unity.Wpf.Tests\bin\Debug\Prism.Unity.Wpf.Tests.dll
-  - dotnet test Source\Xamarin\Prism.Forms.Tests.csproj
-  - dotnet test Source\Xamarin\Prism.Autofac.Forms.Tests.csproj
-  - dotnet test Source\Xamarin\Prism.DryIoc.Forms.Tests.csproj
+  - dotnet test Source\Xamarin\Prism.Forms.Tests\Prism.Forms.Tests.csproj
+  - dotnet test Source\Xamarin\Prism.Autofac.Forms.Tests\Prism.Autofac.Forms.Tests.csproj
+  - dotnet test Source\Xamarin\Prism.DryIoc.Forms.Tests\Prism.DryIoc.Forms.Tests.csproj
