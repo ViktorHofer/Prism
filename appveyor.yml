@@ -15,3 +15,9 @@ build_script:
   - msbuild Source/PrismLibrary_Wpf.sln
 test_script:
   - dotnet test Source/Prism.Tests/Prism.Tests.csproj
+  - xunit.console.x86 Source/Wpf/Tests/Prism.Autofac.Wpf.Tests -appveyor
+  - xunit.console.x86 Source/Wpf/Tests/Prism.DryIoc.Wpf.Tests -appveyor
+  - xunit.console.x86 Source/Wpf/Tests/Prism.Mef.Wpf.Tests -appveyor
+  - xunit.console.x86 Source/Wpf/Tests/Prism.StructureMap.Wpf.Tests -appveyor
+  - xunit.console.x86 Source/Wpf/Tests/Prism.Unity.Wpf.Tests -appveyor
+  - xunit.console.x86 Source/Wpf/Tests/Prism.Wpf.Tests -appveyor
