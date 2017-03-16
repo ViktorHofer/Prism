@@ -8,7 +8,4 @@ before_build:
   - nuget restore Source/PrismLibrary_Win10.sln
   - nuget restore Source/PrismLibrary_Wpf.sln
 build_script:
-  - dotnet build Source/PrismLibrary_Core.sln
-  - msbuild Source/PrismLibrary_Xamarin.sln
-  - msbuild Source/PrismLibrary_Win10.sln
-  - msbuild Source/PrismLibrary_Wpf.sln
+  - dotnet msbuild Source/PrismLibrary.sln
