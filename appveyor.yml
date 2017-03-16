@@ -13,13 +13,6 @@ build_script:
   - msbuild Source\PrismLibrary_Xamarin.sln
   - msbuild Source\PrismLibrary_Win10.sln
   - msbuild Source\PrismLibrary_Wpf.sln
-
-  - nuget install xunit.runner.console -ExcludeVersion -Pre -OutputDirectory packages
-  - packages\xunit.runner.console\tools\xunit.console Source\Xamarin\Prism.Forms.Tests\bin\Debug\netcoreapp1.1\Prism.Forms.Tests.dll
-  - packages\xunit.runner.console\tools\xunit.console Source\Xamarin\Prism.Autofac.Forms.Tests\bin\Debug\netcoreapp1.1\Prism.Autofac.Forms.Tests.dll
-  - packages\xunit.runner.console\tools\xunit.console Source\Xamarin\Prism.DryIoc.Forms.Tests\bin\Debug\netcoreapp1.1\Prism.DryIoc.Forms.Tests.dll
-before_test:
-  
 test_script:
   - dotnet test Source\Prism.Tests\Prism.Tests.csproj
   - vstest.console /logger:Appveyor Source\Wpf\Prism.Wpf.Tests\bin\Debug\Prism.Wpf.Tests.dll
