@@ -1,6 +1,5 @@
-version: 1.0.{build}
-shallow_clone: true
 image: Visual Studio 2017
+shallow_clone: true
 build: off
 test: off
 before_build:
@@ -14,8 +13,6 @@ build_script:
   - msbuild Source\PrismLibrary_Xamarin.sln
   - msbuild Source\PrismLibrary_Win10.sln
   - msbuild Source\PrismLibrary_Wpf.sln
-before_test:
-  - nuget install xunit.runner.console -ExcludeVersion -Pre -OutputDirectory packages
 test_script:
   - dotnet test Source\Prism.Tests\Prism.Tests.csproj
-  - packages\xunit.runner.console\tools\xunit.console Source\Wpf\Prism.Autofac.Wpf.Tests\bin\Debug\Prism.Autofac.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor Source\Wpf\Prism.Autofac.Wpf.Tests\bin\Debug\Prism.Autofac.Wpf.Tests.dll
