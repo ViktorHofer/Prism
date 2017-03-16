@@ -15,9 +15,9 @@ build_script:
   - msbuild Source/PrismLibrary_Wpf.sln
 test_script:
   - dotnet test Source/Prism.Tests/Prism.Tests.csproj
-  - xunit.console.x86 Source/Wpf/Prism.Autofac.Wpf.Tests/Prism.Autofac.Wpf.Tests.csproj -appveyor
-  - xunit.console.x86 Source/Wpf/Prism.DryIoc.Wpf.Tests/Prism.DryIoc.Wpf.Tests.csproj -appveyor
-  - xunit.console.x86 Source/Wpf/Prism.Mef.Wpf.Tests/Prism.Mef.Wpf.Tests.csproj -appveyor
-  - xunit.console.x86 Source/Wpf/Prism.StructureMap.Wpf.Tests/Prism.StructureMap.Wpf.Tests.csproj -appveyor
-  - xunit.console.x86 Source/Wpf/Prism.Unity.Wpf.Tests/Prism.Unity.Wpf.Tests.csproj -appveyor
-  - xunit.console.x86 Source/Wpf/Prism.Wpf.Tests/Prism.Wpf.Tests.csproj -appveyor
+  - xunit.console.clr4 Source/Wpf/Prism.Autofac.Wpf.Tests/Prism.Autofac.Wpf.Tests.csproj /appveyor
+  - xunit.console.clr4 Source/Wpf/Prism.DryIoc.Wpf.Tests/Prism.DryIoc.Wpf.Tests.csproj /appveyor
+  - xunit.console.clr4 Source/Wpf/Prism.Mef.Wpf.Tests/Prism.Mef.Wpf.Tests.csproj /appveyor
+  - xunit.console.clr4 Source/Wpf/Prism.StructureMap.Wpf.Tests/Prism.StructureMap.Wpf.Tests.csproj /appveyor
+  - xunit.console.clr4 Source/Wpf/Prism.Unity.Wpf.Tests/Prism.Unity.Wpf.Tests.csproj /appveyor
+  - xunit.console.clr4 Source/Wpf/Prism.Wpf.Tests/Prism.Wpf.Tests.csproj /appveyor
