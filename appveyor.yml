@@ -40,7 +40,7 @@ test_script:
 after_test:
   - dotnet pack src\Prism\ -c Release
   # Xamarin packaging is currently disabled due to a blocking issue: https://bugzilla.xamarin.com/show_bug.cgi?id=53060
-  - ps nuspecs\CreateWpfWindowsNugetPackages.ps1
+  - powershell -f nuspecs\CreateWpfWindowsNugetPackages.ps1
 
 artifacts:
   path: 'src\**\*.nupkg'
@@ -48,10 +48,9 @@ artifacts:
 
 deploy:  
 - provider: NuGet
-  name: nuget_prerelease
-  server: https://www.myget.org/F/Prism/api/v2/package
+  server: https://www.myget.org/F/prism-pre/api/v2/package
   api_key:
-    secure: asd
+    secure: ed5c0f57-b691-4a55-8656-a44193a25c43
   skip_symbols: true
   on:
     branch: master
