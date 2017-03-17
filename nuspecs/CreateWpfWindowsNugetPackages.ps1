@@ -35,6 +35,7 @@ if ((Test-Path $wpfAssemblyPath))
 }
 else
 {
+    Write-Host $wpfAssemblyPath
     Write-Host 'Prism.Wpf.dll not found'
 }
 

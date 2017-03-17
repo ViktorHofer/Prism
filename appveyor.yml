@@ -50,7 +50,7 @@ deploy:
 - provider: NuGet
   server: https://www.myget.org/F/prism-pre/api/v2/package
   api_key:
-    secure: ed5c0f57-b691-4a55-8656-a44193a25c43
+    secure: ZR2WeSlQqSkfL6YpxWzIqhdeKSdxxPqp9yvN7l+SyIX+yIHNcKNqCENWcE8A6GsQ
   skip_symbols: true
   on:
     branch: master
