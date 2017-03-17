@@ -1,6 +1,5 @@
 image: Visual Studio 2017
 shallow_clone: true
-build: off
 test: off
 skip_branch_with_pr: true
 skip_tags: true
@@ -29,12 +28,12 @@ build:
 
 test_script:
   - dotnet test test\Prism.Tests\Prism.Tests.csproj
-  - vstest.console /logger:Appveyor test\Prism.Wpf.Tests\bin\Debug\Prism.Wpf.Tests.dll
-  - vstest.console /logger:Appveyor test\Prism.Autofac.Wpf.Tests\bin\Debug\Prism.Autofac.Wpf.Tests.dll
-  - vstest.console /logger:Appveyor test\Prism.DryIoc.Wpf.Tests\bin\Debug\Prism.DryIoc.Wpf.Tests.dll
-  - vstest.console /logger:Appveyor test\Prism.Mef.Wpf.Tests\bin\Debug\Prism.Mef.Wpf.Tests.dll
-  - vstest.console /logger:Appveyor test\Prism.StructureMap.Wpf.Tests\bin\Debug\Prism.StructureMap.Wpf.Tests.dll
-  - vstest.console /logger:Appveyor test\Prism.Unity.Wpf.Tests\bin\Debug\Prism.Unity.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor test\Prism.Wpf.Tests\bin\Release\Prism.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor test\Prism.Autofac.Wpf.Tests\bin\Release\Prism.Autofac.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor test\Prism.DryIoc.Wpf.Tests\bin\Release\Prism.DryIoc.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor test\Prism.Mef.Wpf.Tests\bin\Release\Prism.Mef.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor test\Prism.StructureMap.Wpf.Tests\bin\Release\Prism.StructureMap.Wpf.Tests.dll
+  - vstest.console /logger:Appveyor test\Prism.Unity.Wpf.Tests\bin\Release\Prism.Unity.Wpf.Tests.dll
   # Xamarin tests are currently disabled due to a blocking issue: https://bugzilla.xamarin.com/show_bug.cgi?id=53060
   # UWP tests are not currently not supported by appveyor: https://github.com/appveyor/ci/issues/393
 
