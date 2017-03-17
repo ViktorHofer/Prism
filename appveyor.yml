@@ -18,6 +18,33 @@ only_commits:
 nuget:
   disable_publish_on_pr: true
 
+init:
+- ps: >-
+    $parsedBuildVersion = $env:APPVEYOR_REPO_TAG_NAME -Match "(\d+.\d+.\d+(.\d+)?)"
+    
+    If($env:appveyor_repo_tag -AND $parsedBuildVersion) {
+      $env:BuildVersion = $matches[0]
+      $env:HasTag = $TRUE
+    }
+    else {
+      $env:BuildVersion = $env:appveyor_build_version
+      $env:HasTag = ""
+    }
+    
+    Write-Host "Build Version: " $env:BuildVersion
+    Write-Host "Tag name:  " $env:appveyor_repo_tag
+    Write-Host "Commit: " $env:APPVEYOR_REPO_COMMIT_MESSAGE 
+    Write-Host "Commit extended:" $env:APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED
+    
+    Write-Host "appveyor_build_version Variable: " $env:appveyor_build_version
+  
+assembly_info:
+  patch: true
+  file: 'src\**\AssemblyInfo.cs'
+  assembly_version: $(BuildVersion)
+  assembly_file_version: $(BuildVersion)
+  assembly_informational_version: "$(BuildVersion)-build$(env:APPVEYOR_BUILD_NUMBER)"
+
 before_build:
   - nuget restore PrismLibrary.sln
   - dotnet restore PrismLibrary.sln  
@@ -25,6 +52,7 @@ before_build:
 build:
   parallel: true
   project: PrismLibrary.sln
+  verbosity: minimal
 
 test_script:
   - dotnet test test\Prism.Tests\Prism.Tests.csproj
@@ -38,9 +66,9 @@ test_script:
   # UWP tests are not currently not supported by appveyor: https://github.com/appveyor/ci/issues/393
 
 after_test:
-  - dotnet pack src\Prism\ -c Release
+  - dotnet pack src\Prism\ -c Release --version-suffix "build$(env:APPVEYOR_BUILD_NUMBER)"
   # Xamarin packaging is currently disabled due to a blocking issue: https://bugzilla.xamarin.com/show_bug.cgi?id=53060
-  - powershell -f nuspecs\CreateWpfWindowsNugetPackages.ps1
+  - ps: .\nuget.ps1
 
 artifacts:
   path: 'src\**\*.nupkg'
@@ -54,3 +82,4 @@ deploy:
   skip_symbols: true
   on:
     branch: master
+    HasTag: true
