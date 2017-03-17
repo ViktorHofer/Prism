@@ -24,6 +24,7 @@ if ((Test-Path $coreAssemblyPath))
 ###########################
 $wpfNuspecPath = "$($nuspecDirectory)Prism.Wpf.nuspec"
 $wpfAssemblyPath = "$($srcDirectory)Prism.Wpf\bin\Release\Prism.Wpf.dll"
+Write-Host $wpfAssemblyPath
 if ((Test-Path $wpfAssemblyPath))
 {
     $fileInfo = Get-Item $wpfAssemblyPath
