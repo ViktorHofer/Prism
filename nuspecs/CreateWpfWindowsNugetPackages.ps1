@@ -1,7 +1,6 @@
-﻿$currentPath = (Get-Item -Path ".\" -Verbose).FullName + "\"
-$nugetOutputDirectory = $currentPath + "..\src\"
-$nuspecDirectory = $currentPath
-$srcDirectory = $currentPath + '..\src\'
+﻿$nugetOutputDirectory = 'src\'
+$nuspecDirectory = 'nuspecs\'
+$srcDirectory = 'src\'
 $releaseNotesUri = 'https://github.com/PrismLibrary/Prism/wiki/Release-Notes-6.3.0-Pre2'
 $xamarinFormsVersion = '2.3.3.193'
 $nugetFileName = 'nuget.exe'
@@ -24,7 +23,6 @@ if ((Test-Path $coreAssemblyPath))
 ###########################
 $wpfNuspecPath = "$($nuspecDirectory)Prism.Wpf.nuspec"
 $wpfAssemblyPath = "$($srcDirectory)Prism.Wpf\bin\Release\Prism.Wpf.dll"
-Write-Host $wpfAssemblyPath
 if ((Test-Path $wpfAssemblyPath))
 {
     $fileInfo = Get-Item $wpfAssemblyPath
